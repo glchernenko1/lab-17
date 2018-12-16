@@ -1,0 +1,24 @@
+int main(
+{
+	l_stack<char> left, right;
+	char a;
+	ifstream file("text.txt");
+	while (file.eof())
+	{
+		file >> a;
+		if (a == '{' || a == '[' || a == '(') left.push(a);
+		else
+		if (a == '}' || a == ']' || a == ')') right.push(a);
+		a = '!';
+	}
+	while (!left.is_empty() && !right.is_empty() && (left.top()==right.top() ))
+	{
+		left.pop();
+		right.pop();
+	}
+	cout << left.is_empty() && right.is_empty();
+
+
+    system("pause");
+    return 0;
+}
